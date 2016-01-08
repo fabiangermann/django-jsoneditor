@@ -4,7 +4,13 @@ function init_editor(element) {
       return;
     }
 
-    var config = JSON.parse(element.dataset.config);
+    var config;
+    try {
+      config = JSON.parse(element.dataset.config);
+    } catch(err) {
+      // TODO: Proper error handling
+      config = {schema: {}};
+    }
     var field = django.jQuery(element)
       .parent('.jsoneditor-wrapper')
       .find('.datafield textarea').get(0);
@@ -20,7 +26,11 @@ function init_editor(element) {
     editor.field = field;
 
     if (field.value) {
-      editor.setValue(JSON.parse(field.value));
+      try {
+          editor.setValue(JSON.parse(field.value));
+      } catch(err) {
+        // TODO: Proper error handling
+      }
     }
 
     // Add click event to toggle datafield containing actual json data

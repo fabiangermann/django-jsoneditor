@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import json
 
 from django import forms
@@ -6,7 +9,7 @@ from django.utils.html import format_html
 from .app_settings import JSONEDITOR_JS
 
 
-class JsonEditorWidget(forms.widgets.Textarea):
+class JSONEditorWidget(forms.widgets.Textarea):
     default_config = {
       'disable_collapse': True,
       'disable_edit_json': True,
@@ -18,7 +21,7 @@ class JsonEditorWidget(forms.widgets.Textarea):
     def __init__(self, config, *args, **kwargs):
         self.config = self.default_config.copy()
         self.config.update(config)
-        super(JsonEditorWidget, self).__init__(*args, **kwargs)
+        super(JSONEditorWidget, self).__init__(*args, **kwargs)
 
     class Media:
         css = {'screen': ('jsoneditor/css/jsoneditor_widget.css',)}
@@ -29,7 +32,7 @@ class JsonEditorWidget(forms.widgets.Textarea):
         )
 
     def render(self, name, value, attrs=None):
-        input_field = super(JsonEditorWidget, self).render(name, value, attrs)
+        input_field = super(JSONEditorWidget, self).render(name, value, attrs)
 
         return format_html(
             """
@@ -50,7 +53,7 @@ class JsonEditorWidget(forms.widgets.Textarea):
             })
 
 
-class FeinCmsJsonEditorWidget(JsonEditorWidget):
+class FeinCMSJSONEditorWidget(JSONEditorWidget):
     class Media:
         css = {'screen': ('jsoneditor/css/jsoneditor_widget.css',)}
         js = (
