@@ -1,0 +1,10 @@
+*.pyc
+*~
+.*.swp
+\#*#
+.DS_Store
+._*
+*.sqlite
+/dist
+/build
+.coverage
