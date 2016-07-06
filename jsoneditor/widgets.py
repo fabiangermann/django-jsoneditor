@@ -27,6 +27,7 @@ class JSONEditorWidget(forms.widgets.Textarea):
         css = {'screen': ('jsoneditor/css/jsoneditor_widget.css',)}
         js = (
             JSONEDITOR_JS,
+            'jsoneditor/js/jsoneditor_filer_editor.js',
             'jsoneditor/js/jsoneditor_django_theme.js',
             'jsoneditor/js/jsoneditor_widget.js'
         )
@@ -58,6 +59,7 @@ class FeinCMSJSONEditorWidget(JSONEditorWidget):
         css = {'screen': ('jsoneditor/css/jsoneditor_widget.css',)}
         js = (
             JSONEDITOR_JS,
+            'jsoneditor/js/jsoneditor_filer_editor.js',
             'jsoneditor/js/jsoneditor_django_theme.js',
             'jsoneditor/js/jsoneditor_widget.js',
             'jsoneditor/js/jsoneditor_feincms_init.js'
