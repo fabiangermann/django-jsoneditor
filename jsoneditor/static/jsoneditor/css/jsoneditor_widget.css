@@ -11,7 +11,7 @@
 
 .order-item[class*="item-wrapper-"] .jsoneditor-container > .indented-panel {
   border: none;
-  margin: 0!important;
+  margin: 0 !important;
 }
 
 /*
@@ -23,11 +23,11 @@
 }
 
 .jsoneditor-container h3 {
-  padding: .5rem!important;
-  margin-top: -1px!important;
+  padding: 0.5rem !important;
+  margin-top: -1px !important;
   position: relative;
-  font-size: 13px!important;
-  font-weight: normal!important;
+  font-size: 13px !important;
+  font-weight: normal !important;
 }
 
 .jsoneditor-container label {
@@ -35,12 +35,12 @@
 }
 
 .jsoneditor-container .form-control {
-  margin: .25rem 0;
+  margin: 0.25rem 0;
 }
 
 .jsoneditor-container .button {
   border: none;
-  margin: 0 .3rem .3rem .3rem;
+  margin: 0 0.3rem 0.3rem 0.3rem;
   padding: 5px 10px;
 }
 
@@ -63,7 +63,7 @@
 .jsoneditor-container .header-button-holder button {
   background: none;
   border: 1px solid #fff;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
 }
 
 .jsoneditor-container .header-button-holder button:hover {
@@ -81,10 +81,10 @@
 }
 
 .jsoneditor-container table textarea {
-  height: 50px
+  height: 50px;
 }
 
-div[data-schematype=array] {
+div[data-schematype="array"] {
   border: 1px solid #eee;
   margin-bottom: 2rem;
 }
@@ -100,27 +100,27 @@ div[data-schematype=array] {
   margin: 10px;
 }
 
-.jsoneditor-container .tab-holder>.tabs {
+.jsoneditor-container .tab-holder > .tabs {
   border-right: 1px solid #eee;
 }
 
-.jsoneditor-container .tab-holder>.tabs .tab {
-  background: #f6f6f6!important;
+.jsoneditor-container .tab-holder > .tabs .tab {
+  background: #f6f6f6 !important;
   border: none;
   border-radius: none;
   cursor: pointer;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
-.jsoneditor-container .tab-holder>.tabs .tab.active {
-  background: #79aec8!important;
+.jsoneditor-container .tab-holder > .tabs .tab.active {
+  background: #79aec8 !important;
   color: #fff;
 }
 
-.jsoneditor-container .tab-holder>.content {
+.jsoneditor-container .tab-holder > .content {
   flex-grow: 1;
 }
 
-.jsoneditor-container .tab-holder>.content>.indented-panel {
+.jsoneditor-container .tab-holder > .content > .indented-panel {
   margin: 0;
 }
