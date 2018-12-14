@@ -16,5 +16,10 @@ module.exports = {
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "prettier/prettier": "error",
     quotes: 0
+  },
+  globals: {
+    django: false,
+    contentblock_init_handlers: false,
+    JSONEditor: false
   }
 };

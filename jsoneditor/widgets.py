@@ -11,11 +11,11 @@ from .app_settings import JSONEDITOR_JS
 
 class JSONEditorWidget(forms.widgets.Textarea):
     default_config = {
-      'disable_collapse': True,
-      'disable_edit_json': True,
-      'disable_properties': True,
-      'theme': 'django',
-      'schema': {}
+        'disable_collapse': True,
+        'disable_edit_json': True,
+        'disable_properties': True,
+        'theme': 'django',
+        'schema': {}
     }
 
     def __init__(self, config, *args, **kwargs):

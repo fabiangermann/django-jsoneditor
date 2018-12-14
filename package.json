@@ -7,5 +7,8 @@
   "scripts": {
     "prettier": "prettier --write .*js jsoneditor/static/jsoneditor/**/*.*",
     "eslint": "eslint jsoneditor/static/jsoneditor/"
-  }
+  },
+  "eslintIgnore": [
+    "jsoneditor/static/jsoneditor/js/jsoneditor.min.js"
+  ]
 }
