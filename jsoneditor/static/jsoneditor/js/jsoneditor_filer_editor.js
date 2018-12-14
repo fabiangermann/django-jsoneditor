@@ -1,3 +1,12 @@
+/* Patch functions with ones emitting a 'change' event after closing the popup */
+window.__original_dismissRelatedLookupPopup = window.dismissRelatedLookupPopup;
+window.dismissRelatedLookupPopup = function(win, chosenId) {
+    var input = document.getElementById(window.windowname_to_id(win.name));
+    __original_dismissRelatedLookupPopup(win, chosenId);
+    django.jQuery(input).trigger('change');
+}
+/* End patching */
+
 JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.extend({
     setValue: function(value, initial) {
         this.value = value;
@@ -53,7 +62,7 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         var relatedLookupLink = document.createElement('a');
         relatedLookupLink.className = 'related-lookup';
         relatedLookupLink.setAttribute('id', 'lookup_id_' + id);
-        relatedLookupLink.setAttribute('href', '/admin/filer/folder/last/?_to_field=id');
+        relatedLookupLink.setAttribute('href', '/admin/files/file/?_popup=1&_to_field=id');
         relatedLookupLink.setAttribute('title', 'Nachschlagen');
         relatedLookupLink.setAttribute('onclick', 'return showRelatedObjectLookupPopup(this);');
         relatedLookupLink.appendChild(relatedLookupLinkImage);
