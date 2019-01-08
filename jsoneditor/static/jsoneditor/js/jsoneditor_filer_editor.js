@@ -15,12 +15,10 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
       this.value = value;
 
       var container = django.jQuery(this.input).closest(".related-widget-wrapper");
-      var thumb = container.find("[id$=thumbnail_img]");
       var descriptionText = container.find("[id$=description_txt]");
 
       if (value) {
         this.input.value = value.id;
-        thumb.attr("src", value.thumb_url);
         descriptionText.text(value.desc);
       }
 
@@ -39,12 +37,10 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
       var editor = this;
       this.input.onchange = function() {
         var container = django.jQuery(this).siblings(".filerFile");
-        var thumb = container.find("[id$=thumbnail_img]");
         var descriptionText = container.find("[id$=description_txt]");
         editor.setValue({
           id: this.value,
           desc: descriptionText.text(),
-          thumb_url: thumb.attr("src")
         });
         django.jQuery(editor).trigger("change");
       };
@@ -64,28 +60,6 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         "onclick",
         "return showRelatedObjectLookupPopup(this);"
       );
-
-      /*
-      var thumb = document.createElement("img");
-      thumb.className = "quiet";
-      thumb.setAttribute("id", "id_" + id + "_thumbnail_img");
-      thumb.setAttribute("src", "/static/filer/icons/nofile_48x48.png");
-      thumb.setAttribute("alt", "keine Datei ausgewählt");
-      */
-
-      /*
-      // Clearer does not work at all atm (but has to be here
-      // otherwise the filer code crashes wenn selecting an item).
-      var clearer = document.createElement("img");
-      clearer.className = "filerClearer";
-      clearer.setAttribute("id", "id_" + id + "_clear");
-      clearer.setAttribute("src", "/static/admin/img/icon_deletelink.gif");
-      clearer.setAttribute("width", "10");
-      clearer.setAttribute("height", "10");
-      clearer.setAttribute("alt", "Zurücksetzen");
-      clearer.setAttribute("title", "Zurücksetzen");
-      clearer.setAttribute("style", "display: none");
-      */
 
       var wrapper = document.createElement("div");
       wrapper.className = "related-widget-wrapper";
