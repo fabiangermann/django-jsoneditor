@@ -57,7 +57,7 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
       relatedLookupLink.setAttribute("id", "lookup_id_" + id);
       relatedLookupLink.setAttribute(
         "href",
-        "/admin/files/file/?_popup=1&_to_field=id"
+        "/admin/files/file/?_popup=1&_to_field=id&folder__id__exact=last"
       );
       relatedLookupLink.setAttribute("title", "Nachschlagen");
       relatedLookupLink.setAttribute(
