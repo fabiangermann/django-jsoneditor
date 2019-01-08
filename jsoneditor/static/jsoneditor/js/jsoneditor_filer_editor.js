@@ -31,8 +31,8 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         .toString(36)
         .substr(2, 5);
       this.input = document.createElement("input");
-      this.input.setAttribute("type", "hidden");
-      this.input.className = "setAttribute";
+      this.input.setAttribute("type", "text");
+      this.input.className = "vForeignKeyRawIdAdminField";
       this.input.setAttribute("id", "id_" + id);
       this.input.setAttribute("name", id);
 
@@ -48,12 +48,6 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         });
         django.jQuery(editor).trigger("change");
       };
-
-      var thumb = document.createElement("img");
-      thumb.className = "quiet";
-      thumb.setAttribute("id", "id_" + id + "_thumbnail_img");
-      thumb.setAttribute("src", "/static/filer/icons/nofile_48x48.png");
-      thumb.setAttribute("alt", "keine Datei ausgewählt");
 
       var desc = document.createElement("span");
       desc.setAttribute("id", "id_" + id + "_description_txt");
@@ -71,6 +65,15 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         "return showRelatedObjectLookupPopup(this);"
       );
 
+      /*
+      var thumb = document.createElement("img");
+      thumb.className = "quiet";
+      thumb.setAttribute("id", "id_" + id + "_thumbnail_img");
+      thumb.setAttribute("src", "/static/filer/icons/nofile_48x48.png");
+      thumb.setAttribute("alt", "keine Datei ausgewählt");
+      */
+
+      /*
       // Clearer does not work at all atm (but has to be here
       // otherwise the filer code crashes wenn selecting an item).
       var clearer = document.createElement("img");
@@ -82,19 +85,14 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
       clearer.setAttribute("alt", "Zurücksetzen");
       clearer.setAttribute("title", "Zurücksetzen");
       clearer.setAttribute("style", "display: none");
-
-      var widget = document.createElement("span");
-      widget.className = "filerFile";
-      widget.appendChild(thumb);
-      widget.innerHTML += "&nbsp;";
-      widget.appendChild(desc);
-      widget.appendChild(relatedLookupLink);
-      widget.appendChild(clearer);
+      */
 
       var wrapper = document.createElement("div");
       wrapper.className = "related-widget-wrapper";
-      wrapper.appendChild(widget);
+
       wrapper.appendChild(this.input);
+      wrapper.appendChild(relatedLookupLink);
+      wrapper.appendChild(desc);
 
       this.container.appendChild(wrapper);
     }
