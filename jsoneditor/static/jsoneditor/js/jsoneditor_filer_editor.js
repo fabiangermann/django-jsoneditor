@@ -14,7 +14,7 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
     setValue: function(value, _initial) {
       this.value = value;
 
-      var container = django.jQuery(this.input).siblings(".filerFile");
+      var container = django.jQuery(this.input).closest(".related-widget-wrapper");
       var thumb = container.find("[id$=thumbnail_img]");
       var descriptionText = container.find("[id$=description_txt]");
 
