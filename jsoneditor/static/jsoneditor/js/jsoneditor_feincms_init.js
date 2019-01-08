@@ -1,7 +1,9 @@
-django.jQuery(document).ready(function ($) {
+/* global init_editor, updateValues */
+django.jQuery(document).ready(function($) {
   var instances = [],
-    doUpdate = function() { updateValues(instances); };
-
+    doUpdate = function() {
+      updateValues(instances);
+    };
 
   if (window.contentblock_init_handlers) {
     // FeinCMS 1.x
@@ -15,12 +17,11 @@ django.jQuery(document).ready(function ($) {
         }
       });
     });
-
   } else {
     // django-content-editor (obviously!)
 
     $(document).on("content-editor:activate", function(event, formset) {
-      console.log("Activating", formset);
+      window.console && window.console.log("Activating", formset);
       var jsoneditor = formset.find(".jsoneditor");
       if (jsoneditor.length) {
         var editor = init_editor(jsoneditor[0]);
@@ -30,6 +31,5 @@ django.jQuery(document).ready(function ($) {
         }
       }
     });
-
   }
 });

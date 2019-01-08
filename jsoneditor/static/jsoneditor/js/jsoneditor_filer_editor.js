@@ -14,7 +14,9 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
     setValue: function(value, _initial) {
       this.value = value;
 
-      var container = django.jQuery(this.input).closest(".related-widget-wrapper");
+      var container = django
+        .jQuery(this.input)
+        .closest(".related-widget-wrapper");
       var descriptionText = container.find("[id$=description_txt]");
 
       if (value) {
@@ -40,7 +42,7 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         var descriptionText = container.find("[id$=description_txt]");
         editor.setValue({
           id: this.value,
-          desc: descriptionText.text(),
+          desc: descriptionText.text()
         });
         django.jQuery(editor).trigger("change");
       };
