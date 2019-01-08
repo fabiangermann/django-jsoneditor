@@ -58,15 +58,6 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
       var desc = document.createElement("span");
       desc.setAttribute("id", "id_" + id + "_description_txt");
 
-      var relatedLookupLinkImage = document.createElement("img");
-      relatedLookupLinkImage.setAttribute(
-        "src",
-        "/static/admin/img/icon_searchbox.png"
-      );
-      relatedLookupLinkImage.setAttribute("alt", "Nachschlagen");
-      relatedLookupLinkImage.setAttribute("width", "16");
-      relatedLookupLinkImage.setAttribute("height", "16");
-
       var relatedLookupLink = document.createElement("a");
       relatedLookupLink.className = "related-lookup";
       relatedLookupLink.setAttribute("id", "lookup_id_" + id);
@@ -79,7 +70,6 @@ JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.ex
         "onclick",
         "return showRelatedObjectLookupPopup(this);"
       );
-      relatedLookupLink.appendChild(relatedLookupLinkImage);
 
       // Clearer does not work at all atm (but has to be here
       // otherwise the filer code crashes wenn selecting an item).
