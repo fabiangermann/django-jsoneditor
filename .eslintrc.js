@@ -1,0 +1,25 @@
+module.exports = {
+  env: {
+    browser: true,
+    es6: true
+  },
+  extends: "eslint:recommended",
+  parserOptions: {
+    ecmaVersion: 2018
+  },
+  plugins: ["prettier"],
+  rules: {
+    indent: ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    quotes: ["error", "double"],
+    semi: ["error", "always"],
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "prettier/prettier": "error",
+    quotes: 0
+  },
+  globals: {
+    django: false,
+    contentblock_init_handlers: false,
+    JSONEditor: false
+  }
+};

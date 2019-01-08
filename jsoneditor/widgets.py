@@ -11,11 +11,11 @@ from .app_settings import JSONEDITOR_JS
 
 class JSONEditorWidget(forms.widgets.Textarea):
     default_config = {
-      'disable_collapse': True,
-      'disable_edit_json': True,
-      'disable_properties': True,
-      'theme': 'django',
-      'schema': {}
+        'disable_collapse': True,
+        'disable_edit_json': True,
+        'disable_properties': True,
+        'theme': 'django',
+        'schema': {}
     }
 
     def __init__(self, config, *args, **kwargs):
@@ -32,8 +32,10 @@ class JSONEditorWidget(forms.widgets.Textarea):
             'jsoneditor/js/jsoneditor_widget.js'
         )
 
-    def render(self, name, value, attrs=None):
-        input_field = super(JSONEditorWidget, self).render(name, value, attrs)
+    def render(self, name, value, attrs=None, **kwargs):
+        input_field = super(JSONEditorWidget, self).render(
+            name, value, attrs, **kwargs
+        )
 
         return format_html(
             """
@@ -48,10 +50,9 @@ class JSONEditorWidget(forms.widgets.Textarea):
                 </div>
             </div>
             """,
-            **{
-                'field': input_field,
-                'config': json.dumps(self.config),
-            })
+            field=input_field,
+            config=json.dumps(self.config),
+        )
 
 
 class FeinCMSJSONEditorWidget(JSONEditorWidget):

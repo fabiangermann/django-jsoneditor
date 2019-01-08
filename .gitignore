@@ -8,3 +8,5 @@
 /dist
 /build
 .coverage
+node_modules
+*.egg-info
