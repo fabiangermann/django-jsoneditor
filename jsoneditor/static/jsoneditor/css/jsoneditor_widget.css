@@ -80,6 +80,10 @@
   width: 90%;
 }
 
+.jsoneditor-container table input.vForeignKeyRawIdAdminField {
+  width: 5em;
+}
+
 .jsoneditor-container table textarea {
   height: 50px;
 }
