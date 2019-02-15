@@ -12,7 +12,14 @@
 JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.extend(
   {
     setValue: function(value, _initial) {
-      this.value = value;
+      /* check for value id. When unsetting file the returned value is
+         {id: "", desc: ""} which differs from the expected value "" for
+         non assigned fields. */
+      if (value && value.id) {
+        this.value = value;
+      } else {
+        this.value = "";
+      }
 
       var container = django
         .jQuery(this.input)
