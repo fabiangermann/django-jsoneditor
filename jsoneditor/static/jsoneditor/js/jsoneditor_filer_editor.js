@@ -1,12 +1,12 @@
 /* Patch functions with ones emitting a 'change' event after closing the popup */
-(function() {
+document.addEventListener("DOMContentLoaded", () => {
   var __original_dismissRelatedLookupPopup = window.dismissRelatedLookupPopup;
   window.dismissRelatedLookupPopup = function(win, chosenId) {
-    var input = document.getElementById(window.windowname_to_id(win.name));
+    var input = document.getElementById(win.name);
     __original_dismissRelatedLookupPopup(win, chosenId);
     django.jQuery(input).trigger("change");
   };
-})();
+});
 /* End patching */
 
 JSONEditor.defaults.editors.django_filer = JSONEditor.defaults.editors.string.extend(
